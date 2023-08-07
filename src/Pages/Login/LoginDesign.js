@@ -134,8 +134,9 @@ const LoginDesign = () => {
                     </Link>
                   </Grid>
                   <Grid item sx={{mt:3}}>
-                    <Link href="#" variant="body2">
-                      {"Don't have an account? Sign Up"}
+                  Don't have an account?
+                    <Link to={"/register"} variant="body2">
+                      {"Sign Up"}
                     </Link>
                   </Grid>
                 </ListItem>
