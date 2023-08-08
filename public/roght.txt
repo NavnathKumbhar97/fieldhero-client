@@ -1,0 +1,3 @@
+#a0a7b2 for content bg
+
+#2a64b5 sidebar bg
