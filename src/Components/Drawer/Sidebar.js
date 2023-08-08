@@ -103,7 +103,7 @@ export default function Sidebar() {
     <>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" sx={{backgroundColor:"#2a64b5"}} open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -123,14 +123,14 @@ export default function Sidebar() {
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+        <DrawerHeader style={{backgroundColor:"#2a64b5"}}>
+          <IconButton onClick={handleDrawerClose} style={{color:"white"}}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
-        <Divider />
+        <Divider style={{backgroundColor:"#2a64b5"}}/>
         {open?(<>
-        <List>
+        <List style={{backgroundColor:"#2a64b5"}}>
             <ListItem disablePadding sx={{ display: 'block',mb:'-30px',mt:'-40px' }}>
               <List
                 sx={{
@@ -148,7 +148,7 @@ export default function Sidebar() {
                 >
 
                 </ListItemIcon>
-                <List sx={{display: 'flex',flexDirection:'column'}}>
+                <List sx={{display: 'flex',flexDirection:'column',color:"white"}}>
                 <Typography variant="h6" noWrap component="div" sx={{fontWeight:"bold",mb:'-15px' }}>
                   Field Hero
                 </Typography>
@@ -160,8 +160,8 @@ export default function Sidebar() {
             </ListItem>
         </List>
         
-        <Divider /></>):""}
-        <List>
+        <Divider style={{backgroundColor:"#2a64b5"}}/></>):""}
+        <List style={{backgroundColor:"#2a64b5",color:"white"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -174,7 +174,7 @@ export default function Sidebar() {
                   sx={{
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    justifyContent: 'center',color:"white"
                   }}
                 >
                  <DashboardOutlined />
@@ -183,7 +183,7 @@ export default function Sidebar() {
               </ListItemButton>
             </ListItem>
         </List>
-        <List>
+        <List style={{backgroundColor:"#2a64b5",color:"white"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -196,7 +196,7 @@ export default function Sidebar() {
                   sx={{
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    justifyContent: 'center',color:"white"
                   }}
                 >
                  <PersonAddAlt1Outlined />
@@ -205,7 +205,7 @@ export default function Sidebar() {
               </ListItemButton>
             </ListItem>
         </List>
-        <List>
+        <List style={{backgroundColor:"#2a64b5",color:"white"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -218,7 +218,7 @@ export default function Sidebar() {
                   sx={{
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    justifyContent: 'center',color:"white"
                   }}
                 >
                  <SearchSharp />
@@ -227,7 +227,7 @@ export default function Sidebar() {
               </ListItemButton>
             </ListItem>
         </List>
-        <List>
+        <List style={{backgroundColor:"#2a64b5",color:"white"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -240,7 +240,7 @@ export default function Sidebar() {
                   sx={{
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    justifyContent: 'center',color:"white"
                   }}
                 >
                  <ContactEmergencyOutlinedIcon />
@@ -249,7 +249,7 @@ export default function Sidebar() {
               </ListItemButton>
             </ListItem>
         </List>
-        <List>
+        <List style={{backgroundColor:"#2a64b5",color:"white"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -262,7 +262,7 @@ export default function Sidebar() {
                   sx={{
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    justifyContent: 'center',color:"white"
                   }}
                 >
                  <InfoOutlinedIcon />
