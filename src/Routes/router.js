@@ -4,30 +4,16 @@ import LoginDesign from "../Pages/Login/LoginDesign";
 import ForgotpassDesign from "../Pages/ForgotPass/ForgotpassDesign";
 import RegistrationDesign from "../Pages/Registration/RegistrationDesign";
 import Drawer from "../Components/Drawer/Sidebar";
+import CustomerProfileDesign from "../Components/CustomerProfile/CustomerProfileDesign";
+import ContentDesign from "../Pages/Content/ContentDesign";
+import { pageData } from "../Pages/PageData/PageData";
 
 export default function () {
 
-//   let {
-//     candidateMaster,
-//     candUploadBatch,
-//     canVerification,
-//     agentMaster,
-//     agentPricingTemplate,
-//     adminCanUploadBatch,
-//     categoryMaster,
-//     companyMaster,
-//     customerMaster,
-//     industyMaster,roleMaster,
-//     skillsetMaster,
-//     subscriptionMaster,userMaster,
-//     batchPriority,
-//     otherIndustyCategory,
-//     userLoginHistory,
-//     userActivity,
-//     userActivityAdmin,
-//     userLoginActivityAdmin,
+  let {
+    candidateProfile
     
-//   } = pageData()
+  } = pageData
   return (
     <Router>
       <Routes>
@@ -39,12 +25,10 @@ export default function () {
         <Route>
           <Route/>
         
-            <Route
-            path="/dashboard" element={<Drawer/>}
-            >
-
-          
-        </Route>        
+            <Route path="/dashboard" element={<Drawer/>}/>
+            <Route path="/customer-profile" element={<ContentDesign data={candidateProfile}/>}/>
+            <Route path="/candidate-profile" element={<ContentDesign data={candidateProfile}/>}/>
+                    
         </Route>
       </Routes>
     </Router>

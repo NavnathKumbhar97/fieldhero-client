@@ -19,6 +19,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ContactEmergencyOutlinedIcon from '@mui/icons-material/ContactEmergencyOutlined';
 import { DashboardOutlined, PersonAddAlt1Outlined, SearchOffOutlined, SearchSharp } from '@mui/icons-material';
+import { Link, Outlet } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -28,7 +29,7 @@ const openedMixin = (theme) => ({
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
   }),
-  overflowX: 'hidden',
+  overflowX: 'hidden',backgroundColor:'#2a64b5',color:"white"
 });
 
 const closedMixin = (theme) => ({
@@ -40,7 +41,8 @@ const closedMixin = (theme) => ({
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
-  },
+  },backgroundColor:'#2a64b5',
+  color:"white"
 });
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -104,7 +106,7 @@ export default function Sidebar() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" sx={{backgroundColor:"#2a64b5"}} open={open}>
-        <Toolbar>
+        <Toolbar >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -161,8 +163,9 @@ export default function Sidebar() {
         </List>
         
         <Divider style={{backgroundColor:"#2a64b5"}}/></>):""}
-        <List style={{backgroundColor:"#2a64b5",color:"white"}}>
+        <List style={{backgroundColor:"#2a64b5",textDecoration:'none'}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
+            <Link to={'/dashboard'} style={{ textDecoration:'none', color:'white' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -179,12 +182,16 @@ export default function Sidebar() {
                 >
                  <DashboardOutlined />
                 </ListItemIcon>
-                <ListItemText primary={"Dashboard"} sx={{ opacity: open ? 1 : 0 }} />
+                
+                  <ListItemText primary={"Dashboard"} sx={{ opacity: open ? 1 : 0 }} />
+               
               </ListItemButton>
+              </Link>
             </ListItem>
         </List>
-        <List style={{backgroundColor:"#2a64b5",color:"white"}}>
+        <List style={{backgroundColor:"#2a64b5"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
+              <Link to={'/customer-profile'} style={{ textDecoration:'none', color:'white' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -203,10 +210,12 @@ export default function Sidebar() {
                 </ListItemIcon>
                 <ListItemText primary={"Customer Profile"} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
+              </Link>
             </ListItem>
         </List>
-        <List style={{backgroundColor:"#2a64b5",color:"white"}}>
+        <List style={{backgroundColor:"#2a64b5"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
+              <Link to={'/candidate-search'} style={{ textDecoration:'none', color:'white' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -225,10 +234,12 @@ export default function Sidebar() {
                 </ListItemIcon>
                 <ListItemText primary={"Candidate Search"} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
+              </Link>
             </ListItem>
         </List>
-        <List style={{backgroundColor:"#2a64b5",color:"white"}}>
+        <List style={{backgroundColor:"#2a64b5"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
+              <Link to={'/candidate-profile'} style={{ textDecoration:'none', color:'white' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -247,10 +258,12 @@ export default function Sidebar() {
                 </ListItemIcon>
                 <ListItemText primary={"Candidate Profile"} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
+              </Link>
             </ListItem>
         </List>
-        <List style={{backgroundColor:"#2a64b5",color:"white"}}>
+        <List style={{backgroundColor:"#2a64b5"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
+              <Link to={'/about'} style={{textDecoration:'none', color:'white'}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -269,38 +282,15 @@ export default function Sidebar() {
                 </ListItemIcon>
                 <ListItemText primary={"About"} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
+              </Link>
             </ListItem>
         </List>
 
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
+        <Typography>
+          <Outlet/>
         </Typography>
       </Box>
     </Box>
