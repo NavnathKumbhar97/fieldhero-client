@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import TextField from "@mui/material/TextField";
 import {
@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 
 const LoginDesign = () => {
+  const navigate = useNavigate()
   return (
     <>
     {/* Display the image only for small screens */}
@@ -113,6 +114,9 @@ const LoginDesign = () => {
                   // fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
+                  onClick={()=>{
+                    navigate('/dashboard')
+                  }}
                 >
                   Login
                 </Button>

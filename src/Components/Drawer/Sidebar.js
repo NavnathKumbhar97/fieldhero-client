@@ -20,6 +20,8 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ContactEmergencyOutlinedIcon from '@mui/icons-material/ContactEmergencyOutlined';
 import { DashboardOutlined, PersonAddAlt1Outlined, SearchOffOutlined, SearchSharp } from '@mui/icons-material';
 import { Link, Outlet } from 'react-router-dom';
+import ContentDesign from '../../Pages/Content/ContentDesign';
+import Profile from '../../Pages/Profile/Profile';
 
 const drawerWidth = 240;
 
@@ -105,7 +107,7 @@ export default function Sidebar() {
     <>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" sx={{backgroundColor:"#2a64b5"}} open={open}>
+      <AppBar position="fixed" sx={{backgroundColor:"#2a64b5",display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'space-between'}} open={open}>
         <Toolbar >
           <IconButton
             color="inherit"
@@ -123,6 +125,7 @@ export default function Sidebar() {
           Field Hero
           </Typography>
         </Toolbar>
+        <Profile />
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader style={{backgroundColor:"#2a64b5"}}>
@@ -165,7 +168,7 @@ export default function Sidebar() {
         <Divider style={{backgroundColor:"#2a64b5"}}/></>):""}
         <List style={{backgroundColor:"#2a64b5",textDecoration:'none'}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
-            <Link to={'/dashboard'} style={{ textDecoration:'none', color:'white' }}>
+            <Link to={'/'} style={{ textDecoration:'none', color:'white' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -289,7 +292,7 @@ export default function Sidebar() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography>
+        <Typography >
           <Outlet/>
         </Typography>
       </Box>

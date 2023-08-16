@@ -5,16 +5,11 @@ const pageData = () => {
   const data = {
     candidateProfile: {
       page: "candidate-profile",
-      buttonText: "New",
-      pageTitle:"Candidate Profile",
-      modalTitle:"Add Candidate"
+
     },
     
-    candUploadBatch: {
+    customerProfile: {
       page: "customer-profile",
-      buttonText: "Upload",
-      pageTitle:"Candidate Upload Batch",
-      modalTitle:'Bulk Upload Candidate'
 
     },
     

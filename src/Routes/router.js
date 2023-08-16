@@ -9,26 +9,26 @@ import ContentDesign from "../Pages/Content/ContentDesign";
 import { pageData } from "../Pages/PageData/PageData";
 
 export default function () {
-
-  let {
-    candidateProfile
-    
-  } = pageData
+  let { candidateProfile } = pageData;
   return (
     <Router>
       <Routes>
-        <Route path="" element={<LoginDesign />}></Route>
+        <Route path="/login" element={<LoginDesign />}></Route>
         <Route path="/forgot-Password" element={<ForgotpassDesign/>}></Route>
         <Route path="/register" element={<RegistrationDesign/>}></Route>
+        {/* <Route path="/dashboard" element={<Drawer/>} /> */}
+
 
         {/* the layout */}
-        <Route>
-          <Route/>
+        <Route path="" element={<Drawer />}>
+          {/* <Route path="" element={<Drawer/>} /> */}
         
-            <Route path="/dashboard" element={<Drawer/>}/>
-            <Route path="/customer-profile" element={<ContentDesign data={candidateProfile}/>}/>
-            <Route path="/candidate-profile" element={<ContentDesign data={candidateProfile}/>}/>
-                    
+          <Route path="candidate-profile" element={<ContentDesign data={candidateProfile}/>}>
+
+          </Route>
+          <Route path="customer-profile" element={<ContentDesign />}></Route>
+          <Route path="candidate-search" element={<ContentDesign />}></Route>
+          
         </Route>
       </Routes>
     </Router>
