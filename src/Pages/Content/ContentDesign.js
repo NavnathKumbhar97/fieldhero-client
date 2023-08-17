@@ -1,40 +1,38 @@
-import React, { useEffect } from 'react'
-import CandidateProfileDesign from '../../Components/CandidateProfile/CandidateProfileDesign'
-import ContentLogic from './ContentLogic';
+import React from 'react';
 import { Card } from '@mui/material';
 import CustomerProfileDesign from '../../Components/CustomerProfile/CustomerProfileDesign';
+import pageData from "../PageData/PageData"; // Adjust the import path
+import CandidateSearchDesign from '../../Components/CandidateSearch/CandidateSearchDesign';
 
 export default function ContentDesign(props) {
   const { data } = props;
-    console.log("data.page",data);
 
-    // useEffect(()=>{
-    //     console.log("data.page",data.page);
-    //     if (data.page === "candidate-profile") {
-    //         console.log("data.page",data.page);
-    //         <>
-    //         <CandidateProfileDesign/>
-    //         {/* <div>ContentDesign</div> */}
-    //         </>
-    //       }
-    //     if (data.page === "customer-profile") {
-    //         console.log("data.page",data.page);
-    //         <>
-    //         <CandidateProfileDesign/>
-    //         {/* <div>ContentDesign</div> */}
-    //         </>
-    //       }
-    // },[data.page])
+  const page = data?.page || '';
+  
+  const designData =()=>{
+    console.log(page);
+    switch (page) {
+      case 'candidate-profile':
+        return(
+        <CandidateSearchDesign />
+        )
+        break;
     
+      case 'customer-profile':
+        return(
+        <CustomerProfileDesign />
+        )
+        break;
+    
+      default:
+        break;
+    }
+  }
   return (
     <>
-    <Card>
-    <CustomerProfileDesign/>
-    <div>ContentDesign</div>
-    <ContentLogic/>
-    </Card>
+      <Card>
+      {designData()}
+      </Card>
     </>
-  )
+  );
 }
-
-// export default ContentDesign
