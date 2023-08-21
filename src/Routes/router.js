@@ -9,7 +9,7 @@ import ContentDesign from "../Pages/Content/ContentDesign";
 import { pageData } from "../Pages/PageData/PageData";
 
 export default function () {
-  let { candidateProfile,customerProfile } = pageData();
+  let { candidateProfile,customerProfile,candidateSearch } = pageData();
   return (
     <Router>
       <Routes>
@@ -23,11 +23,9 @@ export default function () {
         <Route path="" element={<Drawer />}>
           {/* <Route path="" element={<Drawer/>} /> */}
         
-          <Route path="candidate-profile" element={<ContentDesign data={candidateProfile}/>}>
-
-          </Route>
           <Route path="customer-profile" element={<ContentDesign data={customerProfile}/>}></Route>
-          <Route path="candidate-search" element={<ContentDesign />}></Route>
+          <Route path="candidate-profile" element={<ContentDesign data={candidateProfile}/>}></Route>
+          <Route path="candidate-search" element={<ContentDesign data={candidateSearch}/>}></Route>
           
         </Route>
       </Routes>

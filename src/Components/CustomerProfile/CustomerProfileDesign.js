@@ -21,7 +21,7 @@ export default function CustomerProfileDesign() {
   return (
     <Box sx={{ width: "100%", typography: "body1", margin: "20px" }}>
       <Image
-        src="/pexels-alex-conchillos-3745234.jpg"
+        src="/download (2).jpeg"
         width={200}
         height={200}
       ></Image>

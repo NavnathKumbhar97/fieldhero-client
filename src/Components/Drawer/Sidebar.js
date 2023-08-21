@@ -22,6 +22,7 @@ import { DashboardOutlined, PersonAddAlt1Outlined, SearchOffOutlined, SearchShar
 import { Link, Outlet } from 'react-router-dom';
 import ContentDesign from '../../Pages/Content/ContentDesign';
 import Profile from '../../Pages/Profile/Profile';
+import Footer from '../Footer/Footer';
 
 const drawerWidth = 240;
 
@@ -127,6 +128,7 @@ export default function Sidebar() {
         </Toolbar>
         <Profile />
       </AppBar>
+      
       <Drawer variant="permanent" open={open}>
         <DrawerHeader style={{backgroundColor:"#2a64b5"}}>
           <IconButton onClick={handleDrawerClose} style={{color:"white"}}>
@@ -290,6 +292,7 @@ export default function Sidebar() {
         </List>
 
       </Drawer>
+      
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography >
@@ -297,6 +300,7 @@ export default function Sidebar() {
         </Typography>
       </Box>
     </Box>
+    {/* <Footer/>  */}
     </>
   );
 }

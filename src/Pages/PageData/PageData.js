@@ -3,6 +3,7 @@ import React from "react";
 const pageData = () => {
   
   const data = {
+
     candidateProfile: {
       page: "candidate-profile",
 
@@ -10,6 +11,10 @@ const pageData = () => {
     
     customerProfile: {
       page: "customer-profile",
+
+    },
+    candidateSearch: {
+      page: "candidate-search",
 
     },
     
