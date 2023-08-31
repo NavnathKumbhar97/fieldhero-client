@@ -7,6 +7,7 @@ import {
   Button,
   Checkbox,
   Container,
+  Divider,
   FormControl,
   FormControlLabel,
   FormLabel,
@@ -16,11 +17,13 @@ import {
   RadioGroup,
   Typography,
 } from "@mui/material";
+import RegistrationLogic from "./RegistrationLogic";
 
 const RegistrationDesign = () => {
+  let { setRegistrationForm, registerAPI,registerForm } = RegistrationLogic();
   return (
     <>
-    {/* Display the image only for small screens */}
+      {/* Display the image only for small screens */}
       <ListItem sx={{ display: { xs: "flex", md: "none" } }}>
         <Box
           component="img"
@@ -69,43 +72,58 @@ const RegistrationDesign = () => {
             }}
           >
             <Typography component="h1" variant="b">
-            Registration
+              Registration
             </Typography>
             <Box
-            component="img"
-            sx={{
-              width:50,
-              height:70,
-              backgroundImage: "/logo.4d6033c9.svg",mt: 5
-            }}
-            src="/logo.4d6033c9.svg"
-            alt="The house from the offer."
-          />
-            <Typography component="h2" variant="b" sx={{ mt: 5 }}>
+              component="img"
+              sx={{
+                width: 50,
+                height: 70,
+                backgroundImage: "/logo.4d6033c9.svg",
+                mt: 3,
+              }}
+              src="/logo.4d6033c9.svg"
+              alt="The house from the offer."
+            />
+            <Typography component="h2" variant="b" sx={{ mt: 3 }}>
               Filed Hero
             </Typography>
-            <Box component="form" noValidate sx={{ mt: 1 }}>
-            <FormControl>
-      <FormLabel id="demo-row-radio-buttons-group-label">Are you ?</FormLabel>
-      <RadioGroup
-        row
-        aria-labelledby="demo-row-radio-buttons-group-label"
-        name="row-radio-buttons-group"
-      >
-        <FormControlLabel value="Individual" control={<Radio />} label="Individual" />
-        <FormControlLabel value="Organization" control={<Radio />} label="Organization" />
-      </RadioGroup>
-    </FormControl>
-              
+            <Box component="form" noValidate sx={{ mt: 2,mb:2 }}>
+              <Divider/>
+              <FormControl>
+                <FormLabel id="demo-row-radio-buttons-group-label">
+                  Are you ?
+                </FormLabel>
+                <RadioGroup
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="row-radio-buttons-group"
+                >
+                  <FormControlLabel
+                    value="Individual"
+                    control={<Radio />}
+                    label="Individual"
+                  />
+                  <FormControlLabel
+                    value="Organization"
+                    control={<Radio />}
+                    label="Organization"
+                  />
+                </RadioGroup>
+              </FormControl>
+
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                id="email"
+                id="fullName"
                 label="Full Name"
-                name="email"
-                autoComplete="email"
-                autoFocus
+                name="fullName"
+                autoComplete="fullName"
+                value={registerForm.fullName}
+                onChange={(e)=>{
+                  setRegistrationForm({...registerForm,fullName:e.target.value})
+                }}
               />
               <TextField
                 margin="normal"
@@ -115,7 +133,10 @@ const RegistrationDesign = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                autoFocus
+                value={registerForm.email}
+                onChange={(e)=>{
+                  setRegistrationForm({...registerForm,email:e.target.value})
+                }}
               />
               <TextField
                 margin="normal"
@@ -126,13 +147,17 @@ const RegistrationDesign = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={registerForm.passwordHash}
+                onChange={(e)=>{
+                  setRegistrationForm({...registerForm,passwordHash:e.target.value})
+                }}
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
                 name="repassword"
-                label="Re-Password"
+                label="Confirm Password"
                 type="repassword"
                 id="repassword"
                 autoComplete="current-password"
@@ -141,10 +166,14 @@ const RegistrationDesign = () => {
                 sx={{ display: "flex", justifyContent: "space-between" }}
               >
                 <Button
-                  type="submit"
+                  // type="submit"
                   // fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
+                  onClick={()=>{
+                    registerAPI()
+                    console.log(registerForm);
+                  }}
                 >
                   register
                 </Button>
@@ -160,10 +189,10 @@ const RegistrationDesign = () => {
                     alignItems: "flex-end",
                   }}
                 >
-                  <Grid item sx={{mt:3}}>
-                  Already have an account?
+                  <Grid item sx={{ mt: 3 }}>
+                    Already have an account?{" "}
                     <Link to={"/"} variant="body2">
-                    {"Login"}
+                      {"Login"}
                     </Link>
                   </Grid>
                 </ListItem>

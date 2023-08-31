@@ -89,6 +89,9 @@ export default function Profile() {
     localStorage.clear();
   };
 
+  let userEmail = localStorage.getItem("user"); // string
+    let uEmail = JSON.parse(userEmail);
+
 //   const changePasswordAPICall = () => {
 //     let authTok = localStorage.getItem("user"); // string
 //     let convertTokenToObj = JSON.parse(authTok);
@@ -234,7 +237,7 @@ export default function Profile() {
           <p
             style={{ textAlign:'center', marginTop: "-30px", fontSize: "14px" }}
           >
-            nkumbhar@apexaglobal.com
+            {uEmail.userEmail}
           </p>
           <Divider></Divider>
           {/* <MenuItem onClick={handleOpenChangePassModal}>

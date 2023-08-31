@@ -134,7 +134,7 @@ const CandidateSearchDesign = () => {
         image="/download (1).jpeg"
         alt="Live from space album cover"
       />
-      <Box sx={{ display: 'flex', flexDirection: 'column',width:'80%' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column',width:'80%',borderLeft:'1px solid black',ml:2 }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5" sx={{mb:4,}}>
           Sundar Pichai <Box sx={{ color: "green", fontSize: "13px" }}>
@@ -173,7 +173,7 @@ const CandidateSearchDesign = () => {
         image="/download.jpeg"
         alt="Live from space album cover"
       />
-      <Box sx={{ display: 'flex', flexDirection: 'column',width:'80%' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column',width:'80%',borderLeft:'1px solid black',ml:2 }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5" sx={{mb:4}}>
            Elon Musk <Box sx={{ fontSize: "13px" }}>

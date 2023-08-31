@@ -12,8 +12,25 @@ import {
   ListItem,
   Typography,
 } from "@mui/material";
+import LoginLogic from "./LoginLogic";
 
 const LoginDesign = () => {
+  let {
+    loginAPIcall,
+    errorTextEmail,
+    email,
+    setEmail,
+    errorTextPass,
+    setErrorTextPass,
+    password,
+    setPassword,
+    setPass,
+    setShowPass,
+    showPass,
+    handleChange,validateEmail,setErrorTextEmail,
+    loader,setLoader,
+    openErrMsg,setOpenErrtMsg,
+  } = LoginLogic()
   const navigate = useNavigate()
   return (
     <>
@@ -27,7 +44,7 @@ const LoginDesign = () => {
             m: 0,
             p: 0,
             backgroundImage: "/pexels-alex-conchillos-3745234.jpg",
-            backgroundSize: "cover", // Ensure the image covers the container
+            backgroundSize: "cover",
           }}
           src="/pexels-alex-conchillos-3745234.jpg"
         />
@@ -91,6 +108,10 @@ const LoginDesign = () => {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={email}
+                onChange={(e)=>{
+                  setEmail(e.target.value)
+                }}
               />
               <TextField
                 margin="normal"
@@ -101,6 +122,10 @@ const LoginDesign = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={password}
+                onChange={(e)=>{
+                  setPassword(e.target.value)
+                }}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -110,12 +135,12 @@ const LoginDesign = () => {
                 sx={{ display: "flex", justifyContent: "space-between" }}
               >
                 <Button
-                  type="submit"
+                  // type="submit"
                   // fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
                   onClick={()=>{
-                    navigate('/dashboard')
+                    loginAPIcall()
                   }}
                 >
                   Login
@@ -138,7 +163,7 @@ const LoginDesign = () => {
                     </Link>
                   </Grid>
                   <Grid item sx={{mt:3}}>
-                  Don't have an account?
+                  Don't have an account? {" "}
                     <Link to={"/register"} variant="body2">
                       {"Sign Up"}
                     </Link>
