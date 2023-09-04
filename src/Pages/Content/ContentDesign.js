@@ -30,6 +30,12 @@ export default function ContentDesign(props) {
         )
         break;
     
+      case 'about':
+        return (
+          <>Not Available</>
+        )
+        break;
+    
       default:
         break;
     }

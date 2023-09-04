@@ -23,6 +23,7 @@ import { Link, Outlet } from 'react-router-dom';
 import ContentDesign from '../../Pages/Content/ContentDesign';
 import Profile from '../../Pages/Profile/Profile';
 import Footer from '../Footer/Footer';
+import Image from 'mui-image';
 
 const drawerWidth = 240;
 
@@ -122,15 +123,23 @@ export default function Sidebar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          
+          {/* <Typography variant="h6" noWrap component="div">
           Field Hero
-          </Typography>
+          </Typography> */}
         </Toolbar>
         <Profile />
       </AppBar>
       
       <Drawer variant="permanent" open={open}>
         <DrawerHeader style={{backgroundColor:"#2a64b5"}}>
+          <Image src='https://admin.fieldhero.in/img/logo.a3b1bafb.png' height={50} width={50} style={{marginRight:'100px'}}></Image>
+        <List sx={{display: 'flex',flexDirection:'column',color:"white"}}>
+                <Typography variant="h6" noWrap component="div" sx={{fontWeight:"bold",mb:'-15px' }}>
+                  Field Hero
+                </Typography>
+                <p>Apexa Group</p>
+                </List>
           <IconButton onClick={handleDrawerClose} style={{color:"white"}}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
@@ -155,19 +164,14 @@ export default function Sidebar() {
                 >
 
                 </ListItemIcon>
-                <List sx={{display: 'flex',flexDirection:'column',color:"white"}}>
-                <Typography variant="h6" noWrap component="div" sx={{fontWeight:"bold",mb:'-15px' }}>
-                  Field Hero
-                </Typography>
-                <p>Apexa Group</p>
-                </List>
+                
 
               </List>
                 {/* <p>Apexa Group</p> */}
             </ListItem>
         </List>
         
-        <Divider style={{backgroundColor:"#2a64b5"}}/></>):""}
+        </>):""}
         <List style={{backgroundColor:"#2a64b5",textDecoration:'none'}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
             <Link to={'/'} style={{ textDecoration:'none', color:'white' }}>
@@ -290,7 +294,7 @@ export default function Sidebar() {
               </Link>
             </ListItem>
         </List>
-
+      <Divider/>
       </Drawer>
       
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>

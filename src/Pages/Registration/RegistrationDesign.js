@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 
 import TextField from "@mui/material/TextField";
 import {
+  Alert,
+  Backdrop,
   Button,
   Checkbox,
+  CircularProgress,
   Container,
   Divider,
   FormControl,
@@ -15,16 +18,52 @@ import {
   ListItem,
   Radio,
   RadioGroup,
+  Slide,
+  Snackbar,
   Typography,
 } from "@mui/material";
 import RegistrationLogic from "./RegistrationLogic";
 
+function TransitionLeft(props) {
+  return <Slide {...props} direction="left" />;
+}
+
+
 const RegistrationDesign = () => {
-  let { setRegistrationForm, registerAPI,registerForm } = RegistrationLogic();
+  let { setRegistrationForm, registerAPI,registerForm,loader,alertMessages,
+    setAlertMessages } = RegistrationLogic();
   return (
     <>
+    <Backdrop
+        sx={{ color: "#2a64b5", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loader}
+      >
+        <CircularProgress size={130} thickness={2} color="inherit" />
+      </Backdrop>
+      <Snackbar
+              open={alertMessages}
+              autoHideDuration={6000}
+              onClose={()=>{
+                setAlertMessages(false)}}
+              style={{backgroundColor:'white'}}
+              TransitionComponent={TransitionLeft}
+            >
+              <Alert
+                onClose={()=>{
+                  setAlertMessages(false)}}
+                severity="success"
+                sx={{
+                  width: "100%",
+                  backgroundColor: "#24f05e",
+                  // color: "#24f05e",
+                }}
+              >
+                Invalid Email or Password 
+              </Alert>
+            </Snackbar>
       {/* Display the image only for small screens */}
       <ListItem sx={{ display: { xs: "flex", md: "none" } }}>
+      
         <Box
           component="img"
           sx={{

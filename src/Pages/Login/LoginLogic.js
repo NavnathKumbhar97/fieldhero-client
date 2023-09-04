@@ -11,7 +11,8 @@ const LoginLogic = () => {
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const [isValid, setIsValid] = useState(false);
-  const [message, setMessage] = useState('');
+  const [alertMessages,setAlertMessages] = useState(false)
+  const [message,setMessage] = useState("")
   const [loader, setLoader] = useState(false)
   const [openErrMsg,setOpenErrtMsg] = useState(false)
   const navigate = useNavigate();
@@ -23,22 +24,7 @@ const LoginLogic = () => {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 
-  const validateEmail = (event) => {
-    const email = event.target.value;
-    if (emailRegex.test(email)) {
-      setIsValid(true);
-      setMessage('Your email looks good!');
-    } else {
-      setIsValid(false);
-      setMessage('Please enter a valid email!');
-    }
-  };
-  
-const handleChange=(event)=>{
-  var email = event.target.value;
-  // do what ever you want
-  validation(email);
-}
+
 const validation = (email) => {
   const result = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 return result.test(String(email).toLowerCase());
@@ -63,7 +49,7 @@ const loginAPIcall = async (e) => {
               //Check authentication status
               if (response) {
                   let { token,permissions } = response
-                  
+                  setAlertMessages(true)
                   setLoader(false)
                   // set authorization Header in axios instance
                   axios.defaults.headers = {
@@ -72,7 +58,7 @@ const loginAPIcall = async (e) => {
                   // Redirect authenticate user to dashboard.
                   setTimeout(() => {
                       navigate("/")
-                  }, 500)
+                  }, 1000)
               }else{
               setOpenErrtMsg(true)
               setLoader(false)
@@ -97,11 +83,10 @@ const loginAPIcall = async (e) => {
     setPassword,
     setPass,
     setShowPass,
-    showPass,
-    handleChange,validateEmail,setErrorTextEmail,
+    showPass,setErrorTextEmail,
     loginAPIcall,
-    loader,setLoader,
-    openErrMsg,setOpenErrtMsg,
+    loader,alertMessages,
+    setAlertMessages 
   };
 };
 

@@ -36,28 +36,54 @@ export default function CustomerProfileDesign() {
   return (
     <Box sx={{ width: "100%", typography: "body1", margin: "20px" }}>
       <Box sx={{ display: "flex" }}>
-        <Card sx={{width:'80%',display:'flex',flexDirection:'row'}}>
-        <Image src="/download (2).jpeg" width={200} height={200}></Image>
+        <Card sx={{width:'85%',display:'flex',flexDirection:'row'}}>
+        <Image src="/download (2).jpeg" width={200} height={200} style={{marginLeft:'10px',marginTop:'50px'}}></Image>
 
+      <List style={{display:'flex',flexDirection:'column'}}>
         <List
-          style={{ fontSize: "17px", marginLeft: "10px", marginTop: "-12px" }}
+          style={{ fontSize: "17px", marginLeft: "30px", marginTop: "-12px", }}
         >
-          <b>Candidate Name:</b>Steve jobs
+          <br/>
+          <b>Candidate Name:</b>Steve jobs &nbsp;&nbsp;
+          {/* <br /> */}
+          <b>Company Name:</b>Apple &nbsp;&nbsp;
+          {/* <br /> */}
+          <b>Birthdate:</b>01/01/1970&nbsp;&nbsp;
+          {/* <br /> */}
+          <b>Gender:</b>Male&nbsp;
           <br />
-          <b>Company Name:</b>Apple <br />
-          <b>Birthdate:</b>01/01/1970
-          <br />
-          <b>Gender:</b>Male
           <br />
           <b>State:</b>Maharashtra
-          <br />
+          {/* <br /> */}
+        </List>
+        {/* <Card sx={{ width: "50%",marginLeft:'30px'}}> */}
+          <p style={{ marginLeft: "30px" }}>
+            <b>Email:</b>stevejobs@apple.com
+          </p>
+          <Box
+            sx={{
+              color: "green",
+              fontSize: "13px",
+              marginTop: "-16px",
+              marginLeft: "30px",
+            }}
+          >
+            <CheckCircleOutlineIcon
+              style={{ marginBottom: "-7px" }}
+            ></CheckCircleOutlineIcon>
+            Verified
+          </Box>
+          <p style={{ marginLeft: "30px" }}>
+            <b>Contact No:</b>9898989898
+          </p>
+        {/* </Card> */}
         </List>
         </Card>
 
       </Box>
       <Box sx={{ marginTop: "50px" }}>
         <Divider />
-        <h2>Account</h2>
+        {/* <h2>Account</h2>
         <Divider />
         <Card sx={{ width: "50%", marginBottom: "20px", marginTop: "30px" }}>
           <p style={{ marginLeft: "20px" }}>
@@ -79,7 +105,7 @@ export default function CustomerProfileDesign() {
           <p style={{ marginLeft: "20px" }}>
             <b>Contact No:</b>9898989898
           </p>
-        </Card>
+        </Card> */}
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <Button
             label="change password"
@@ -87,6 +113,7 @@ export default function CustomerProfileDesign() {
               backgroundColor: "#2a64b5",
               width: "30ch",
               color: "white",
+              marginTop:'50px'
             }}
             onClick={() => {
               setChangePassword(true);

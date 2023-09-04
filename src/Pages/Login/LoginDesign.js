@@ -4,15 +4,24 @@ import { Link, useNavigate } from "react-router-dom";
 
 import TextField from "@mui/material/TextField";
 import {
+  Alert,
+  Backdrop,
   Button,
   Checkbox,
+  CircularProgress,
   Container,
   FormControlLabel,
   Grid,
   ListItem,
+  Slide,
+  Snackbar,
   Typography,
 } from "@mui/material";
 import LoginLogic from "./LoginLogic";
+
+function TransitionLeft(props) {
+  return <Slide {...props} direction="left" />;
+}
 
 const LoginDesign = () => {
   let {
@@ -24,16 +33,39 @@ const LoginDesign = () => {
     setErrorTextPass,
     password,
     setPassword,
-    setPass,
-    setShowPass,
-    showPass,
-    handleChange,validateEmail,setErrorTextEmail,
-    loader,setLoader,
-    openErrMsg,setOpenErrtMsg,
+    loader,alertMessages,
+    setAlertMessages
   } = LoginLogic()
   const navigate = useNavigate()
   return (
     <>
+    <Backdrop
+        sx={{ color: "#2a64b5", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loader}
+      >
+        <CircularProgress size={130} thickness={2} color="inherit" />
+      </Backdrop>
+      <Snackbar
+              open={alertMessages}
+              autoHideDuration={6000}
+              onClose={()=>{
+                setAlertMessages(false)}}
+              style={{backgroundColor:'white'}}
+              TransitionComponent={TransitionLeft}
+            >
+              <Alert
+                onClose={()=>{
+                  setAlertMessages(false)}}
+                severity="success"
+                sx={{
+                  width: "100%",
+                  backgroundColor: "#24f05e",
+                  // color: "#24f05e",
+                }}
+              >
+                User logged in successfully
+              </Alert>
+            </Snackbar>
     {/* Display the image only for small screens */}
       <ListItem sx={{ display: { xs: "flex", md: "none" } }}>
         <Box
