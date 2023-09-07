@@ -55,6 +55,9 @@ export default function CustomerProfileDesign() {
     alertForError
   } = CustomerProfile();
 
+  let authTok = localStorage.getItem("user"); // string
+  let convertTokenToObj = JSON.parse(authTok);
+
   return (
     <>
       <Backdrop
@@ -144,7 +147,7 @@ export default function CustomerProfileDesign() {
               </List>
               {/* <Card sx={{ width: "50%",marginLeft:'30px'}}> */}
               <p style={{ marginLeft: "30px" }}>
-                <b>Email:</b>stevejobs@apple.com
+                <b>Email:</b>{convertTokenToObj.userEmail}
               </p>
               <Box
                 sx={{

@@ -7,10 +7,10 @@ export const Footer =() => {
     <Box
       sx={{
         width: "100%",
-        height: "30px",
+        height: "20px",
         backgroundColor: "grey",
-        paddingTop: "1rem",
-        paddingBottom: "1rem",
+        paddingTop: "0.5rem",
+        paddingBottom: "0.5rem",
         display:'flex',
         justifyContent:'flex-end'
       }}
@@ -23,8 +23,8 @@ export const Footer =() => {
             </Typography> */}
           </Grid>
           <Grid item xs={12}>
-            <Typography color="textSecondary" variant="subtitle1">
-             <Copyright/> {`${new Date().getFullYear()} | Apexa Group`}
+            <Typography style={{marginTop:'-9px',fontSize:'12px'}} color="textSecondary" variant="subtitle1">
+             <Copyright style={{marginBottom:'-4px',fontSize:'15px'}}/> {`${new Date().getFullYear()} | This page maintained by the Apexa Group`}
             </Typography>
           </Grid>
         </Grid>

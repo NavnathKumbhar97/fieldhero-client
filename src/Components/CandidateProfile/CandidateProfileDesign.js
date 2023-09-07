@@ -20,7 +20,7 @@ const CandidateProfileDesign = () => {
          <List style={{display:'flex',flexDirection:'row'}}>
           <img
             src="/download.jpeg"
-            style={{ width: 150, height: 150 }}
+            style={{ width: 180, height: 150 }}
             ></img>
           
 

@@ -42,7 +42,7 @@ const names = [
 ];
 
 const CandidateSearchDesign = () => {
-  let { loader, candidateIndustry, candidateSkills } = CandidateSearch();
+  let { loader, candidateIndustry, candidateSkills,candidateData } = CandidateSearch();
   const theme = useTheme();
   const [value, setValue] = useState(4);
   const [personName, setPersonName] = useState([]);
@@ -128,7 +128,7 @@ const CandidateSearchDesign = () => {
               renderValue={(selected) => selected.join(", ")}
               MenuProps={MenuProps}
             >
-              {candidateSkills.map((name) => (
+              {names.map((name) => (
                 <MenuItem key={name.title} value={name.title}>
                   <Checkbox checked={personName.indexOf(name.title) > -1} />
                   <ListItemText primary={name.title} />
@@ -168,6 +168,8 @@ const CandidateSearchDesign = () => {
           <Divider></Divider>
         </div>
 
+        {candidateData.map((data) => (
+          console.log(data,"data"),
         <Box style={{ marginBottom: 20, width: "96%" }}>
           <Card sx={{ display: "flex", alignItems: "center" }}>
             <CardMedia
@@ -187,7 +189,7 @@ const CandidateSearchDesign = () => {
             >
               <CardContent sx={{ flex: "1 0 auto" }}>
                 <Typography component="div" variant="h5" sx={{ mb: 4 }}>
-                  Sundar Pichai{" "}
+                  {data.fullName}{" "}
                   <Box sx={{ color: "green", fontSize: "13px" }}>
                     <CheckCircleOutlineIcon
                       style={{ marginBottom: "-5px" }}
@@ -224,6 +226,7 @@ const CandidateSearchDesign = () => {
             </Box>
           </Card>
         </Box>
+))}
 
         <Box style={{ marginBottom: 20, width: "96%" }}>
           <Card sx={{ display: "flex", alignItems: "center" }}>

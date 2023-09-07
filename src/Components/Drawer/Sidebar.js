@@ -145,6 +145,7 @@ export default function Sidebar() {
           </IconButton>
         </DrawerHeader>
         <Divider style={{backgroundColor:"#2a64b5"}}/>
+       
         {open?(<>
         <List style={{backgroundColor:"#2a64b5"}}>
             <ListItem disablePadding sx={{ display: 'block',mb:'-30px',mt:'-40px' }}>
@@ -297,14 +298,17 @@ export default function Sidebar() {
       <Divider/>
       </Drawer>
       
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Typography >
-          <Outlet/>
-        </Typography>
-      </Box>
-    </Box>
-    {/* <Footer/>  */}
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column',minHeight:'100vh' }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <DrawerHeader />
+          <Typography>
+            <Outlet />
+          </Typography>
+        </Box>
+
+        <Footer />
+      </div>
+    </Box> 
     </>
   );
 }

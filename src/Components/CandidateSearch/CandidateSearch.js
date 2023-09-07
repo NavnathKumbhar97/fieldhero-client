@@ -60,7 +60,7 @@ const CandidateSearch = () => {
       })
       .then((response) => {
         if (response.status === 200) {
-            setCandidateData(response.data);
+            setCandidateData(response.data.Candidates);
             console.log(response.data);
           setLoader(false);
         } else if (response.status === 400) {
@@ -82,6 +82,7 @@ const CandidateSearch = () => {
         loader,
         candidateIndustry,
         candidateSkills,
+        candidateData
     }
   return stateContainer
 }
