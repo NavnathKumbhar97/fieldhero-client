@@ -18,9 +18,6 @@ export const Footer =() => {
       <Container maxWidth="lg">
         <Grid container direction="column" alignItems="center">
           <Grid item xs={12}>
-            {/* <Typography color="black">
-              React Starter App
-            </Typography> */}
           </Grid>
           <Grid item xs={12}>
             <Typography style={{marginTop:'-9px',fontSize:'12px'}} color="textSecondary" variant="subtitle1">
