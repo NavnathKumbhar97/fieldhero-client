@@ -299,7 +299,7 @@ export default function Sidebar() {
       </Drawer>
       
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column',minHeight:'100vh' }}>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 3,bgcolor:'#f2f7f4' }}>
           <DrawerHeader />
           <Typography>
             <Outlet />

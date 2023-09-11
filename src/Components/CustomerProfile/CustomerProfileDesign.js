@@ -23,6 +23,12 @@ import CustomerProfile from "./CustomerProfile";
 import { PieChart } from "@mui/x-charts/PieChart";
 import { BarChart } from "@mui/x-charts/BarChart";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
+import CakeOutlinedIcon from '@mui/icons-material/CakeOutlined';
+import ManOutlinedIcon from '@mui/icons-material/ManOutlined';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import ContactPhoneOutlinedIcon from '@mui/icons-material/ContactPhoneOutlined';
 
 const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
 const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
@@ -111,12 +117,13 @@ export default function CustomerProfileDesign() {
 
       <Box sx={{ width: "100%", typography: "body1", margin: "20px" }}>
         <Box sx={{ display: "flex" }}>
-          <Card sx={{ width: "85%", display: "flex", flexDirection: "row" }}>
+          <Card sx={{ width: "85%", display: "flex", flexDirection: "row",borderRadius:'10px',boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)' }}>
             <Image
-              src="/download (2).jpeg"
-              width={200}
-              height={200}
-              style={{ marginLeft: "10px", marginTop: "50px" }}
+              src="/customer_profile.png"
+              width={150}
+              height={150}
+              style={{ marginLeft: "10px", marginTop: "30px", borderRadius: '90px',
+              boxShadow: '0px 0px 20px rgba(0, 0, 0, 4)' }}
             ></Image>
 
             <List style={{ display: "flex", flexDirection: "column" }}>
@@ -128,42 +135,44 @@ export default function CustomerProfileDesign() {
                 }}
               >
                 <br />
-                <b>Candidate Name:</b>
-                {customerData.fullName} &nbsp;&nbsp;
-                {/* <br /> */}
-                <b>Company Name:</b>
-                {customerData.companyName} &nbsp;&nbsp;
-                {/* <br /> */}
-                <b>Birthdate:</b>
-                {customerData.birthDate}&nbsp;&nbsp;
-                {/* <br /> */}
-                <b>Gender:</b>
-                {customerData.gender}&nbsp;
+                {/* <b>Candidate Name:</b> */}
+                <b style={{fontSize:'21px'}}>{customerData.fullName}</b> &nbsp;&nbsp;&nbsp;
                 <br />
-                <br />
-                <b>State:</b>
+                <WorkOutlineOutlinedIcon style={{marginBottom:'-5px'}}/>&nbsp;
+                {/* <b>Company Name:</b> */}
+                {customerData.companyName} &nbsp;&nbsp;&nbsp;
+                {/* <br /> */}
+                {/* <b>Birthdate:</b> */}
+                <CakeOutlinedIcon style={{marginBottom:'-5px'}}/>&nbsp;
+                {customerData.birthDate}&nbsp;&nbsp;&nbsp;
+                {/* <br /> */}
+                {/* <b>Gender:</b> */}
+                <ManOutlinedIcon style={{marginBottom:'-5px'}}/>&nbsp;
+                {customerData.gender}&nbsp;&nbsp;&nbsp;
+                {/* <br /> */}
+                {/* <br /> */}
+                {/* <b>State:</b> */}
+                <LocationOnOutlinedIcon style={{marginBottom:'-5px'}}/>&nbsp;
                 {customerData.state}
                 {/* <br /> */}
               </List>
               {/* <Card sx={{ width: "50%",marginLeft:'30px'}}> */}
-              <p style={{ marginLeft: "30px" }}>
-                <b>Email:</b>{convertTokenToObj.userEmail}
-              </p>
-              <Box
-                sx={{
-                  color: "green",
-                  fontSize: "13px",
-                  marginTop: "-16px",
-                  marginLeft: "30px",
-                }}
-              >
+              <p style={{ marginLeft: "30px",fontSize:'13px' }}>
+                <EmailOutlinedIcon style={{marginBottom:'-5px',fontSize:'27px'}}/>&nbsp;
+                {convertTokenToObj.userEmail}
+                &nbsp;&nbsp;
                 <CheckCircleOutlineIcon
-                  style={{ marginBottom: "-7px" }}
-                ></CheckCircleOutlineIcon>
-                Verified
-              </Box>
-              <p style={{ marginLeft: "30px" }}>
-                <b>Contact No:</b>9898989898
+                  style={{ marginBottom: "-4px",fontSize: "16px",color: "green", }}
+                  ></CheckCircleOutlineIcon>
+                
+              </p>
+              
+              <p style={{ marginLeft: "30px",fontSize:'13px',marginTop:'-15px' }}>
+                <ContactPhoneOutlinedIcon style={{marginBottom:'-5px',fontSize:'25px'}}/>&nbsp;
+                9898989898&nbsp;&nbsp;
+                <CheckCircleOutlineIcon
+                  style={{ marginBottom: "-4px",fontSize: "16px",color: "green", }}
+                  ></CheckCircleOutlineIcon>
               </p>
               {/* </Card> */}
             </List>
@@ -319,7 +328,7 @@ export default function CustomerProfileDesign() {
         >
           <Divider />
           <h2>Current Subscription</h2>
-          <Card sx={{ width: "60%" }}>
+          <Card sx={{ width: "60%",boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)' }}>
             <PieChart
               sx={{ marginRight: "800px", marginTop: "-200px" }}
               series={[
@@ -358,7 +367,7 @@ export default function CustomerProfileDesign() {
             </Button>
             <h4 style={{ marginTop: "50px" }}>Subscription History</h4>
           </Box>
-          <Card sx={{ width: "60%", marginBottom: "30px" }}>
+          <Card sx={{ width: "60%", marginBottom: "30px",boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)' }}>
             <BarChart
               width={500}
               height={300}
