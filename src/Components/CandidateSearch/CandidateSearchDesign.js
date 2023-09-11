@@ -28,7 +28,6 @@ import CandidateSearch from "./CandidateSearch";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 
-
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -106,7 +105,6 @@ const CandidateSearchDesign = () => {
             >
               {candidateIndustry.map(
                 (name) => (
-                  console.log(name, "names"),
                   (
                     <MenuItem key={name.title} value={name.title}>
                       <Checkbox
@@ -131,7 +129,7 @@ const CandidateSearchDesign = () => {
               renderValue={(selected) => selected.join(", ")}
               MenuProps={MenuProps}
             >
-              {names.map((name) => (
+              {candidateSkills.map((name) => (
                 <MenuItem key={name.title} value={name.title}>
                   <Checkbox checked={personName.indexOf(name.title) > -1} />
                   <ListItemText primary={name.title} />
@@ -172,7 +170,6 @@ const CandidateSearchDesign = () => {
         </div>
 
         {candidateData.map((data) => (
-          console.log(data,"data"),
         <Box style={{ marginBottom: 20, width: "96%" }}>
           <Card sx={{ display: "flex", alignItems: "center" }}>
             <CardMedia

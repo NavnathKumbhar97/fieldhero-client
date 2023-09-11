@@ -6,7 +6,6 @@ const ForgotpassLogic = () => {
 
   const disableShowTextFun=()=>{
     setShowText(false)
-    console.log("showText",showText);
   }
 
   const stateContainer = 

@@ -11,7 +11,6 @@ export default function ContentDesign(props) {
   const page = data?.page || '';
   
   const designData =()=>{
-    console.log(page);
     switch (page) {
       case 'candidate-search':
         return (

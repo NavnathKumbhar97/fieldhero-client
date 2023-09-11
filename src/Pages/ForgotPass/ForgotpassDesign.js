@@ -121,9 +121,9 @@ const ForgotpassDesign = () => {
                     alignItems: "flex-end",
                   }}
                 >
-                  <Grid item xs>
-                    <Link to={"/"} variant="body2">
-                    Already have an account? Login
+                  <Grid item xs>Already have an account?&nbsp;
+                    <Link to={"/login"} variant="body2">
+                     Login
                     </Link>
                   </Grid>
                 </ListItem>
