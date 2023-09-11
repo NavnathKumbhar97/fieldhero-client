@@ -25,6 +25,9 @@ import Checkbox from "@mui/material/Checkbox";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import CandidateSearch from "./CandidateSearch";
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -174,8 +177,8 @@ const CandidateSearchDesign = () => {
           <Card sx={{ display: "flex", alignItems: "center" }}>
             <CardMedia
               component="img"
-              sx={{ width: 151, height: 160, borderRadius: "300px 300px" }}
-              image="/download (1).jpeg"
+              sx={{ width: 151, height: 160, borderRadius: "300px 300px", }}
+              image="/downloadcnd.jpeg"
               alt="Live from space album cover"
             />
             <Box
@@ -183,44 +186,61 @@ const CandidateSearchDesign = () => {
                 display: "flex",
                 flexDirection: "column",
                 width: "80%",
-                borderLeft: "1px solid black",
+                boxShadow: '-2px 0px 2px rgba(0, 0, 0, 0.2)',
+                borderLeft: "0.05px gray",
                 ml: 2,
               }}
             >
               <CardContent sx={{ flex: "1 0 auto" }}>
                 <Typography component="div" variant="h5" sx={{ mb: 4 }}>
                   {data.fullName}{" "}
-                  <Box sx={{ color: "green", fontSize: "13px" }}>
+                  <Box sx={{ fontSize: "16px",display:'flex',flexDirection:'row' }}>
+                  <b><LocationOnOutlinedIcon style={{marginBottom:'-5px'}}/>
+                  </b>&nbsp;location1&nbsp;&nbsp;
+                  
+                  <Box sx={{ color: "green", fontSize: "14px" }}>
                     <CheckCircleOutlineIcon
-                      style={{ marginBottom: "-5px" }}
+                      style={{ marginBottom: "-7px" }}
                     ></CheckCircleOutlineIcon>
                     Verified
                   </Box>
+                  </Box>
                 </Typography>
+                <Box sx={{display:'flex',flexDirection:'row',justifyContent:'flex-start'}}>
+                <Typography
+                  variant="subtitle1"
+                  color="text.secondary"
+                  component="div"
+                  sx={{
+                    borderRadius: "4px", 
+                    backgroundColor: "#f0f0f0", 
+                    padding: "6px",
+                    width:'30%',
+                    marginRight:'20px' 
+                  }}
+                >
+                  skill1,skill2,skill3,skill4,skill5&nbsp;&nbsp;
+                </Typography>
+                {/* <Typography
+                  variant="subtitle1"
+                  // color="text.secondary"
+                  component="div"
+                >
+                  <b><LocationOnOutlinedIcon style={{marginBottom:'-6px'}}/></b>&nbsp;location1,location2,location3&nbsp;&nbsp;
+                </Typography> */}
                 <Typography
                   variant="subtitle1"
                   color="text.secondary"
                   component="div"
                 >
-                  <b>Skills:</b>skill1,skill2,skill3,skill4,skill5
-                </Typography>
-                <Typography
-                  variant="subtitle1"
-                  color="text.secondary"
-                  component="div"
-                >
-                  <b>Work Location:</b>location1,location2,location3
-                </Typography>
-                <Typography
-                  variant="subtitle1"
-                  color="text.secondary"
-                  component="div"
-                >
+                  <WorkOutlineOutlinedIcon style={{marginBottom:'-7px'}}/>&nbsp;
                   No of Jobs done through us : <b>25</b>
                 </Typography>
+                </Box>
               </CardContent>
+              
             </Box>
-            <Box style={{ display: "flex", flexDirection: "column" }}>
+            <Box style={{ display: "flex", flexDirection: "column",marginTop:'-90px' }}>
               <Rating value={value} readOnly />
               <Button sx={{ fontSize: "11px" }}>View more info</Button>
             </Box>
@@ -229,7 +249,7 @@ const CandidateSearchDesign = () => {
 ))}
 
         <Box style={{ marginBottom: 20, width: "96%" }}>
-          <Card sx={{ display: "flex", alignItems: "center" }}>
+          <Card sx={{ display: "flex", alignItems: "center", }}>
             <CardMedia
               component="img"
               sx={{ width: 151, height: 160, borderRadius: "300px 300px" }}
@@ -250,7 +270,7 @@ const CandidateSearchDesign = () => {
                   Elon Musk{" "}
                   <Box sx={{ fontSize: "13px" }}>
                     <CancelOutlinedIcon
-                      style={{ marginBottom: "-5px" }}
+                      style={{ marginBottom: "-5px", color: "red"  }}
                     ></CancelOutlinedIcon>
                     Not Verified
                   </Box>
