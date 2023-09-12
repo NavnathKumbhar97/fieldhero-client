@@ -6,6 +6,7 @@ import {
   CircularProgress,
   Divider,
   FilledInput,
+  List,
   Rating,
   TextField,
 } from "@mui/material";
@@ -16,17 +17,25 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
-import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import CandidateSearch from "./CandidateSearch";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import Switch from '@mui/material/Switch';
+import CandidateWorkExp from "../CandidateProfile/CandidateWorkExp";
 
 
 const ITEM_HEIGHT = 48;
@@ -45,7 +54,12 @@ const names = [
 ];
 
 const CandidateSearchDesign = () => {
-  let { loader, candidateIndustry, candidateSkills,candidateData } = CandidateSearch();
+  let { loader, candidateIndustry, candidateSkills,candidateData,
+    open, setOpen,
+    handleClose,
+    handleClickOpen
+   } = CandidateSearch();
+
   const theme = useTheme();
   const [value, setValue] = useState(4);
   const [personName, setPersonName] = useState([]);
@@ -106,7 +120,6 @@ const CandidateSearchDesign = () => {
             >
               {candidateIndustry.map(
                 (name) => (
-                  console.log(name, "names"),
                   (
                     <MenuItem key={name.title} value={name.title}>
                       <Checkbox
@@ -131,7 +144,7 @@ const CandidateSearchDesign = () => {
               renderValue={(selected) => selected.join(", ")}
               MenuProps={MenuProps}
             >
-              {names.map((name) => (
+              {candidateSkills.map((name) => (
                 <MenuItem key={name.title} value={name.title}>
                   <Checkbox checked={personName.indexOf(name.title) > -1} />
                   <ListItemText primary={name.title} />
@@ -172,7 +185,6 @@ const CandidateSearchDesign = () => {
         </div>
 
         {candidateData.map((data) => (
-          console.log(data,"data"),
         <Box style={{ marginBottom: 20, width: "96%" }}>
           <Card sx={{ display: "flex", alignItems: "center" }}>
             <CardMedia
@@ -242,7 +254,7 @@ const CandidateSearchDesign = () => {
             </Box>
             <Box style={{ display: "flex", flexDirection: "column",marginTop:'-90px' }}>
               <Rating value={value} readOnly />
-              <Button sx={{ fontSize: "11px" }}>View more info</Button>
+              <Button onClick={handleClickOpen} sx={{ fontSize: "11px" }}>View more info</Button>
             </Box>
           </Card>
         </Box>
@@ -305,6 +317,75 @@ const CandidateSearchDesign = () => {
           </Card>
         </Box>
       </Box>
+
+
+      {/* Dialog to view the candidate experiance */}
+      <Dialog
+        fullWidth
+        maxWidth={"xl"}
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogTitle>Profile</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            {/* You can set my maximum width and whether to adapt or not. */}
+          </DialogContentText>
+          <Box style={{display:'flex',flexDirection:'row',justifyContent:'space-between'}}>
+         <List style={{display:'flex',flexDirection:'row'}}>
+          <img
+            src="/download.jpeg"
+            style={{ width: 180, height: 150 }}
+            ></img>
+          
+
+          <List style={{fontSize:'14px',marginLeft:'10px'}}>
+            <b>Candidate Name:</b>Elon Musk<br/>
+            <b>Gender:</b>Male<br/>
+            <b>Permanent Address:</b>5 private drive little whinging<br/>
+            <b>Primary Contact No:</b>9879879878<br/>
+            <b>Aadhar No:</b>098909876543<br/>
+            <b>Primary Email Id:</b>elon@gmail.com
+          </List>
+          </List>
+
+          <List style={{fontSize:'14px'}}>         
+           <b>Birthdate:</b>01/01/1990<br/>
+            <b>Current Address:</b>4 private drive,little whinging<br/>
+            <b>Secondary Contact No:</b>9090909090<br/>
+            <b>Secondary Email Id:</b>elonmusk@gmail.com
+          </List>
+          <List style={{fontSize:'14px'}}>          
+          <b>Skills:</b>skill1, skill2,skill3,skill4<br/>
+            <b>Total Work Experiance:</b>10 year 5 months
+            
+          </List>
+
+        </Box>
+        <h4>
+            Work Experiance
+          </h4>
+        <CandidateWorkExp/>
+          <Box
+            noValidate
+            component="form"
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              m: 'auto',
+              width: 'fit-content',
+            }}
+            >
+            <FormControl sx={{ mt: 2, minWidth: 150 }}>
+              
+            </FormControl>
+            
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Close</Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };

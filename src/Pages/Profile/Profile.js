@@ -229,7 +229,9 @@ export default function Profile() {
           open={Boolean(anchorElUser)}
           onClose={handleCloseUserMenu}
         >
-          <MenuItem>
+          <MenuItem style={{borderRadius: "50px", 
+                    width:'95%',
+                    marginRight:'20px'  }}>
             <Typography textAlign="center">
               <h2>Navnath Kumbhar</h2>
             </Typography>
@@ -262,9 +264,11 @@ export default function Profile() {
             </Typography>
           </MenuItem>
           <Divider></Divider> */}
-          <MenuItem onClick={handleLogout}>
-            <Logout style={{ color: "red" }}></Logout>
-            <Typography textAlign="center" style={{ paddingLeft: "20px" }}>
+          <MenuItem onClick={handleLogout} style={{borderRadius: "50px", 
+                    width:'60%',
+                    marginRight:'20px'  }}>
+            <Logout style={{ color: "red"}}></Logout>
+            <Typography textAlign="center" style={{ paddingLeft: "20px",marginLeft:'10px'}}>
               SIGN OUT
             </Typography>
           </MenuItem>

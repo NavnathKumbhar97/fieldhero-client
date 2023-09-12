@@ -211,7 +211,6 @@ const RegistrationDesign = () => {
                   sx={{ mt: 3, mb: 2 }}
                   onClick={()=>{
                     registerAPI()
-                    console.log(registerForm);
                   }}
                 >
                   register
@@ -230,7 +229,7 @@ const RegistrationDesign = () => {
                 >
                   <Grid item sx={{ mt: 3 }}>
                     Already have an account?{" "}
-                    <Link to={"/"} variant="body2">
+                    <Link to={"/login"} variant="body2">
                       {"Login"}
                     </Link>
                   </Grid>

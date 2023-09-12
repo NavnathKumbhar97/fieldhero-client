@@ -15,7 +15,6 @@ const CandidateProfile = () => {
         if (response.status == 200) {
           setLoader(false);
           setCompanyCandidate(response.data.data.result);
-          console.log("response.data.data.result",response.data.data.result);
         } else if (response.status == 400) {
           setErrMsg(response.data.message);
           setOpenErrtMsg(true);
