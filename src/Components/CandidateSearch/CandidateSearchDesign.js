@@ -16,17 +16,25 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
-import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import CandidateSearch from "./CandidateSearch";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import Switch from '@mui/material/Switch';
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -44,7 +52,12 @@ const names = [
 ];
 
 const CandidateSearchDesign = () => {
-  let { loader, candidateIndustry, candidateSkills,candidateData } = CandidateSearch();
+  let { loader, candidateIndustry, candidateSkills,candidateData,
+    open, setOpen,
+    handleClose,
+    handleClickOpen
+   } = CandidateSearch();
+
   const theme = useTheme();
   const [value, setValue] = useState(4);
   const [personName, setPersonName] = useState([]);
@@ -239,7 +252,7 @@ const CandidateSearchDesign = () => {
             </Box>
             <Box style={{ display: "flex", flexDirection: "column",marginTop:'-90px' }}>
               <Rating value={value} readOnly />
-              <Button sx={{ fontSize: "11px" }}>View more info</Button>
+              <Button onClick={handleClickOpen} sx={{ fontSize: "11px" }}>View more info</Button>
             </Box>
           </Card>
         </Box>
@@ -302,6 +315,40 @@ const CandidateSearchDesign = () => {
           </Card>
         </Box>
       </Box>
+
+
+      {/* Dialog to view the candidate experiance */}
+      <Dialog
+        fullWidth
+        maxWidth={"xl"}
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogTitle>Optional sizes</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            You can set my maximum width and whether to adapt or not.
+          </DialogContentText>
+          <Box
+            noValidate
+            component="form"
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              m: 'auto',
+              width: 'fit-content',
+            }}
+          >
+            <FormControl sx={{ mt: 2, minWidth: 120 }}>
+              
+            </FormControl>
+            
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Close</Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };

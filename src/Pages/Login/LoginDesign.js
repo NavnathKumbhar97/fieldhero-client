@@ -26,17 +26,15 @@ function TransitionLeft(props) {
 const LoginDesign = () => {
   let {
     loginAPIcall,
-    errorTextEmail,
     email,
     setEmail,
-    errorTextPass,
-    setErrorTextPass,
     password,
     setPassword,
     loader,alertMessages,
-    setAlertMessages
+    setAlertMessages,
+    message
   } = LoginLogic()
-  const navigate = useNavigate()
+
   return (
     <>
     <Backdrop
@@ -45,7 +43,7 @@ const LoginDesign = () => {
       >
         <CircularProgress size={130} thickness={2} color="inherit" />
       </Backdrop>
-      <Snackbar
+      {!message?(<Snackbar
               open={alertMessages}
               autoHideDuration={6000}
               onClose={()=>{
@@ -65,7 +63,28 @@ const LoginDesign = () => {
               >
                 User logged in successfully
               </Alert>
-            </Snackbar>
+            </Snackbar>):
+            (<Snackbar
+              open={alertMessages}
+              autoHideDuration={6000}
+              onClose={()=>{
+                setAlertMessages(false)}}
+              style={{borderRadius:'40px'}}
+              TransitionComponent={TransitionLeft}
+            >
+              <Alert
+                onClose={()=>{
+                  setAlertMessages(false)}}
+                severity="warning"
+                sx={{
+                  width: "100%",
+                  backgroundColor: "red",
+                  color: "white",
+                }}
+              >
+                Wrong Email or Password
+              </Alert>
+            </Snackbar>)}
     {/* Display the image only for small screens */}
       <ListItem sx={{ display: { xs: "flex", md: "none" } }}>
         <Box

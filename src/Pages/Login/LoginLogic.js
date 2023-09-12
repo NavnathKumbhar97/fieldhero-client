@@ -12,7 +12,7 @@ const LoginLogic = () => {
   const [showPass, setShowPass] = useState(false);
   const [isValid, setIsValid] = useState(false);
   const [alertMessages,setAlertMessages] = useState(false)
-  const [message,setMessage] = useState("")
+  const [message,setMessage] = useState(false)
   const [loader, setLoader] = useState(false)
   const [openErrMsg,setOpenErrtMsg] = useState(false)
   const navigate = useNavigate();
@@ -34,11 +34,11 @@ return result.test(String(email).toLowerCase());
      * This method responsible for login authentication.
 **/
 const loginAPIcall = async (e) => {
-  setLoader(true)
   try {
       
       // Check for Blank Validation
       if (email !== "" || password !== "") {
+        setLoader(true)
           if (
               checkEmail.test(String(email).toLowerCase())
           ) {
@@ -62,6 +62,8 @@ const loginAPIcall = async (e) => {
               }else{
               setOpenErrtMsg(true)
               setLoader(false)
+              setAlertMessages(true)
+              setMessage(true)
               }
           } 
       } 
@@ -86,7 +88,8 @@ const loginAPIcall = async (e) => {
     showPass,setErrorTextEmail,
     loginAPIcall,
     loader,alertMessages,
-    setAlertMessages 
+    setAlertMessages ,
+    message
   };
 };
 

@@ -77,7 +77,6 @@ export default function CustomerProfileDesign() {
               autoHideDuration={6000}
               onClose={()=>{
                 setAlertMessage(false)}}
-              style={{backgroundColor:'white'}}
               TransitionComponent={TransitionLeft}
             >
               <Alert
@@ -98,7 +97,6 @@ export default function CustomerProfileDesign() {
               autoHideDuration={6000}
               onClose={()=>{
                 setAlertMessage(false)}}
-              style={{backgroundColor:'white'}}
               TransitionComponent={TransitionLeft}
             >
               <Alert
@@ -330,7 +328,7 @@ export default function CustomerProfileDesign() {
           <h2>Current Subscription</h2>
           <Card sx={{ width: "60%",boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.5)' }}>
             <PieChart
-              sx={{ marginRight: "800px", marginTop: "-200px" }}
+              sx={{ marginRight: "800px", marginTop: "-200px", }}
               series={[
                 {
                   data: data2,

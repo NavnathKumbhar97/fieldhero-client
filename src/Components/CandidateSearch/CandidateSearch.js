@@ -5,7 +5,16 @@ const CandidateSearch = () => {
     const [candidateData,setCandidateData] = useState([])
     const [candidateSkills,setCandidateSkills] = useState([])
     const [candidateIndustry,setCandidateIndustry] = useState([])
-    const [loader,setLoader] = useState(false)
+    const [loader,setLoader] = useState(false);
+    const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
     const getCandidateSkills = async() =>{
         let authTok = localStorage.getItem("user"); // string
@@ -82,7 +91,10 @@ const CandidateSearch = () => {
         loader,
         candidateIndustry,
         candidateSkills,
-        candidateData
+        candidateData,
+        open, setOpen,
+        handleClose,
+        handleClickOpen
     }
   return stateContainer
 }
